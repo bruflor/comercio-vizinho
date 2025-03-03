@@ -1,0 +1,24 @@
+@startuml
+start
+:Buscar produto;
+if (Produto encontrado?) then (Sim)
+  :Adicionar ao carrinho;
+  if (Deseja finalizar compra?) then (Sim)
+    :Finalizar pedido;
+    :Pedido em preparação;
+    if (Local de retirada?) then (No produtor)
+      :Consumidor retira o pedido no produtor;
+      stop
+    else (Na cooperativa)
+      :Produtor entrega o pedido na cooperativa;
+      :Consumidor retira o pedido na cooperativa;
+      stop
+    endif
+  else (Não)
+    :Continuar comprando;
+  endif
+else (Não)
+  :Produto não encontrado;
+  stop
+endif
+@enduml
