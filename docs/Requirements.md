@@ -5,10 +5,11 @@
 - [RF03] O sistema deve ter um usuário com permissões de admin para a cooperativa.
 - [RF04] O usuário admin cooperativa pode aprovar cadastro de produtores cooperados.
  
-## Divulgação de Produtos e Serviços
+## Divulgação de Produtos
 - [RF05] O usuário de tipo produtor não deve ser capaz de adicionar produtos se não estiver como aprovado pela cooperativa
 - [RF06] O usuário de tipo produtor aprovado pode cadastrar produtos (com nome, descrição, preço, data de validade e foto).
-- [RF07] O usuário de tipo produtor aprovado pode categorizar produtos (ex.: alimentos, artesanato, serviços).
+- [RF07] O usuário de tipo produtor aprovado pode categorizar produtos (ex.: alimentos, artesanato).
+- [RF07] O usuário de tipo produtor aprovado pode categorizar produtos (ex.: alimentos, artesanato).
 - [RF08] O usuário de tipo produtor aprovado pode categorizar o "impacto ambiental" no cadastro de produtos (ex.: baixo, médio, alto).
 - [RF09] O sistema deve permitir que produtores aprovados editem ou removam produtos cadastrados.
 
