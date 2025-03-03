@@ -11,9 +11,9 @@ if (Produtor é cooperado?) then (Sim)
 else (Não)
   :Cooperativa envia notificação ao produtor;
   if (Produtor deseja se tornar cooperado?) then (Sim)
-    :Inicia processo de cooperação;
+    :Inicia processo de cooperação presencialmente;
     :Status do produtor: "Em análise";
-    :Aguardar conclusão do processo;
+    :Aguardar conclusão do processo e aprovação do cadastro;
     stop
   else (Não)
     :Cadastro rejeitado;
