@@ -1,0 +1,19 @@
+@startuml
+start
+:Usuário acessa a tela de cadastro;
+if (Já possui conta?) then (Sim)
+  :Faz login com e-mail e senha;
+  stop
+else (Não)
+  :Preenche formulário de cadastro;
+  :Sistema valida dados;
+  if (Dados válidos?) then (Sim)
+    :Cadastro concluído;
+    :Usuário faz login;
+    stop
+  else (Não)
+    :Exibe mensagem de erro;
+    :Usuário corrige dados;
+  endif
+endif
+@enduml
