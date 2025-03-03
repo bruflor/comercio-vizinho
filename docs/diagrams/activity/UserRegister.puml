@@ -5,15 +5,13 @@ if (Já possui conta?) then (Sim)
   :Faz login com e-mail e senha;
   stop
 else (Não)
+repeat
   :Preenche formulário de cadastro;
   :Sistema valida dados;
-  if (Dados válidos?) then (Sim)
+  backward: Exibe mensagem de erro;
+ repeat while (Dados válidos?) is (Não) not (Sim)
     :Cadastro concluído;
     :Usuário faz login;
     stop
-  else (Não)
-    :Exibe mensagem de erro;
-    :Usuário corrige dados;
   endif
-endif
 @enduml
