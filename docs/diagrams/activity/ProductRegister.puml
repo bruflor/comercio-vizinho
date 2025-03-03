@@ -1,0 +1,12 @@
+@startuml
+start
+:Produtor acessa a tela de cadastro de produtos;
+:Preenche informações do produto (nome, descrição, preço, etc.);
+if (Dados válidos?) then (Sim)
+  :Produto cadastrado com sucesso;
+  stop
+else (Não)
+  :Exibe mensagem de erro;
+  :Produtor corrige dados;
+endif
+@enduml
