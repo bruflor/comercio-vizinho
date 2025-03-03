@@ -8,7 +8,7 @@ repeat
     else (Sim)
         :Adicionar ao carrinho;
     endif
-repeat while (Deseja finalizar compra?) is (Não)
+repeat while (Deseja finalizar compra?) is (Não) not (Sim)
     :Finalizar pedido;
     :Pedido em preparação;
     if (Local e horario de retirada?) then (No produtor)
