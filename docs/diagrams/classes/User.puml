@@ -36,6 +36,6 @@ note bottom of Role: e.g., "Producer", "Consumer", "Admin"
 User "1" -- "0..*" Address : has >
 
 ' User-Role Relationship
-User "1" *-- "many" Role : has >
+User "1" --- "many" Role : has >
 
 @enduml
