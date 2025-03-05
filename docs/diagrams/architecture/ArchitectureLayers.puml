@@ -1,0 +1,70 @@
+@startuml
+' Presentation layer
+package "Frontend (ReactJS)" {
+    [Authentication]
+    [HomePage] --> [Search]
+    [HomePage] --> [SurplusSection]
+    [HomePage] --> [ProductList]
+    [ProductList] --> [ProductDetails]
+    [Cart] --> [Checkout]
+    [UserProfile] --> [OrderHistory]
+}
+
+'Application layer
+package "Backend (ASP.NET Core)" {
+    [API Controller] --> [UserService]
+    [API Controller] --> [ProductService]
+    [API Controller] --> [OrderService]
+    [UserService] --> [Database]
+    [ProductService] --> [Database]
+    [OrderService] --> [Database]
+}
+
+'Data layer
+package "Database (PostgreSQL)" {
+    [User Table]
+    [Product Table]
+    [Order Table]
+    [Category Table]
+}
+
+' Frontend-Backend Communication
+[Authentication] --> [API Controller]
+[HomePage] --> [API Controller]
+[Search] --> [API Controller]
+[SurplusSection] --> [API Controller]
+[ProductList] --> [API Controller]
+[ProductDetails] --> [API Controller]
+[Cart] --> [API Controller]
+[Checkout] --> [API Controller]
+[UserProfile] --> [API Controller]
+[OrderHistory] --> [API Controller]
+
+' Backend-Database Communication
+[UserService] --> [User Table]
+[ProductService] --> [Product Table]
+[OrderService] --> [Order Table]
+[ProductService] --> [Category Table]
+
+
+' Notes
+note top of [Frontend (ReactJS)]
+  Built with ReactJS.
+  Handles user interaction
+  and displays data from the backend.
+end note
+
+note left of [Backend (ASP.NET Core)]
+  Built with ASP.NET Core (C#).
+  Provides RESTful APIs for
+  the frontend to interact with.
+end note
+
+note top of [Database (PostgreSQL)]
+  Stores application data,
+  including users, products,
+  orders, and categories.
+end note
+
+
+@enduml
