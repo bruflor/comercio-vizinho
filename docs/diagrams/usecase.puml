@@ -1,24 +1,25 @@
 @startuml
+skinparam actorStyle awesome
+
 left to right direction
-actor Consumidor
-actor Produtor
-actor Cooperativa
+actor Consumidor #00EE99
+actor Produtor #green
+actor Cooperativa <<Admin>> #0064FF
+actor Usuário #ddd
 
-rectangle "Aplicação Web" {
-  Consumidor -- (Buscar Produtos)
-  Consumidor -- (Adicionar ao Carrinho)
-  Consumidor -- (Finalizar Pedido)
-  Consumidor -- (Retirar Pedido)
+  Usuário -- (Edita perfil)
+  Usuário -- (Cria conta)
+  Usuário -- (Faz Login/logout)
 
-  Produtor -- (Cadastrar Produtos)
-  Produtor -- (Gerenciar Pedidos)
-  Produtor -- (Entregar Pedidos)
+  Consumidor -- (Pedido) : Cria, acompanha, edita, cancela, retira
+  Produtor -- (Produtos): Cria, edita, remove
 
-  Cooperativa -- (Gerenciar Usuários)
-  Cooperativa -- (Enviar Avisos Gerais)
-  Cooperativa -- (Entregar Pedidos)
-}
+  Produtor -- (Pedido) : Gerencia, entrega
+  (Pedido) -- Cooperativa: entrega
 
-(Adicionar ao Carrinho) .> (Buscar Produtos) : extends
-(Finalizar Pedido) .> (Adicionar ao Carrinho) : extends
+  Cooperativa -- (Gerencia Usuário)
+
+  Consumidor <. Usuário : extends
+  Produtor <. Consumidor : extends
+  Cooperativa <. Usuário : extends
 @enduml
