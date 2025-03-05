@@ -1,16 +1,16 @@
 @startuml
 |Cooperativa|
-
+|Sistema|
 |User|
     start
     :Usuário acessa página de cadastro;
     :Adiciona informações de produtor;
     :Salva solicitação;
+    |Sistema|
     :Status do produtor: "Pendente";
 
 |Cooperativa|
-repeat
-    :Cooperativa analisa perfil do novo produtor;
+repeat :Cooperativa analisa perfil de novo produtor;
 |User|
     backward: Cadastre-se na
     cooperativa como cooperado;
@@ -18,10 +18,10 @@ repeat
 |Cooperativa|
 repeat while (Produtor é cooperado?) is (Não) not (Sim)
   :Cooperativa aprova cadastro;
+  |Sistema|
   :Status do produtor: "Aprovado";
-
+  :Libera produtor para cadastrar produtos;
 |User|
-  :Cadastro aprovado;
-  :Produtor pode cadastrar produtos;
+  :Notificação de Cadastro aprovado;
   end
 @enduml
