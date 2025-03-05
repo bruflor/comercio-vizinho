@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Address{
+    + id: int
+    + userId: int
+    + street: string
+    + city: string
+    + state: string
+    + postalCode: string
+    + country: string
+    + isPrimary: boolean = True
+}
+@enduml

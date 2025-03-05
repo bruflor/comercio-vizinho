@@ -1,0 +1,26 @@
+@startuml
+class User <<producer>> {}
+class Role {}
+class Address {}
+
+' Product Classes
+class Product {}
+class Category {}
+
+' Order Classes
+class Order {}
+
+
+' User-Role Relationship
+User "1" -- "1..*" Role : has >
+' User-Address Relationship
+User "1" -- "0..*" Address : has >
+
+' Associations
+User "1" -- "0..*" Product : manages >
+Product "*" -- "*" Category : belongs to >
+User "1" -- "0..*" Order : manages >
+Order "1" -- "1" Address : has >
+Order "1" -- "*" Product : contains >
+
+@enduml
