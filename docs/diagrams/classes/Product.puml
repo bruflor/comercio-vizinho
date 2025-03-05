@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Product{
+    + id: int
+    + name: string
+    + description: string <<optional>>
+    + price: float
+    + stockLevel: int
+    + isAvailable: boolean
+    + category: List<Category>
+
+    + expirationDate: Date <<optional>>
+    + photo: string <<optional>>
+    + environmentalImpact: string <<optional>>
+    + promotionalPrice: float <<optional>>
+
+    + updateStockLevel(quantity: Int): void
+}
+
+note right of Product::isAvailable
+    produto pode ter em estoque
+    porém não quererem vender
+end note
+
+note left of Product::environmentalImpact
+    low, medium, high;
+end note
+
+note right of Product::promotionalPrice
+    quando o produto está na sessão de excedentes
+    o sistema identifica e coloca o preço promocional
+    para 50%;
+    Ou quando querem fazer promoção genérica
+end note
+
+
+@enduml

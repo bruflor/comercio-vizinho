@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Category {
+  + id: string
+  + name: string
+  + description: string
+  + status: string
+}
+
+
+note as N
+' Example Categories
+"Frutas"
+"Legumes"
+"Grãos e Cereais"
+"Laticínios"
+"Carnes e Ovos"
+"Produtos Orgânicos"
+"Produtos Sustentáveis"
+"Geleias e Doces"
+"Farinhas e Massas"
+"Bebidas"
+"Produtos Sazonais"
+"Produtos Regionais"
+"Excedentes Agrícolas"
+end note
+
+@enduml
