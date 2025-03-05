@@ -1,0 +1,9 @@
+@startuml
+start
+:Produtor acessa a tela de cadastro de produtos;
+repeat :Preenche informações do produto (nome, descrição, preço, etc.);
+
+  backward:Exibe mensagem de erro;
+repeat while (Dados válidos?) is (Não) not (Sim)
+  :Produto cadastrado com sucesso;
+@enduml

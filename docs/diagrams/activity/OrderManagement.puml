@@ -1,0 +1,21 @@
+@startuml
+start
+:Produtor acessa a página de pedidos;
+if (Há pedidos?) then (Sim)
+  :Seleciona um pedido;
+  :Atualiza o estado do pedido;
+  if (Local de retirada?) then (No produtor)
+    :Define prazo de retirada;
+    :Aguarda retirada do consumidor;
+    end
+  else (Na cooperativa)
+    :Define prazo de retirada;
+    :Entrega o pedido na cooperativa;
+    :Aguarda retirada do consumidor;
+    end
+  endif
+else (Não)
+  :Nenhum pedido pendente;
+  stop
+endif
+@enduml

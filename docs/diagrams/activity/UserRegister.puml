@@ -1,0 +1,16 @@
+@startuml
+start
+:Acessa aplicação web;
+if (Já possui conta?) then (Sim)
+  :Faz login com e-mail e senha;
+  stop
+else (Não)
+repeat :Preenche formulário de cadastro;
+  :Sistema valida dados;
+  backward: Exibe mensagem de erro;
+ repeat while (Dados válidos?) is (Não) not (Sim)
+    :Cadastro concluído;
+    :Usuário faz login;
+    stop
+  endif
+@enduml
