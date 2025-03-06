@@ -38,32 +38,17 @@ package "APIServer (ASP.NET Core)" {
 }
 
 ' Relationships
-[UserController] --> [UserService]
-[ProductController] --> [ProductService]
-[OrderController] --> [OrderService]
+"Controllers" --> "Services"
+"Services" --> "Repositories"
+"Repositories" --> "Models"
 
-[UserService] --> [UserRepository]
-[ProductService] --> [ProductRepository]
-[OrderService] --> [OrderRepository]
-
-
-[ProductRepository] --> [Product]
-[ProductRepository] --> [Category]
-[UserRepository] --> [User]
-[UserRepository] --> [Address]
-[UserRepository] --> [Product]
-[OrderRepository] --> [Order]
-[OrderRepository] --> [Address]
-[OrderRepository] --> [Product]
 
 note right of [APIServer (ASP.NET Core)]
-  Built with ASP.NET Core (C#).
-  Follows a layered architecture:
-  - Controllers handle HTTP requests.
-  - Services implement business logic.
-  - Repositories interact with the database.
-  - Addresses are managed as part of
-    User and Order entities.
+Construído com ASP.NET Core (C#).
+Segue uma arquitetura em camadas:
+- Controllers lidam com HTTP requests.
+- Services implementam lógica de negócios.
+- Repositories interagem com o banco de dados.
 end note
 
 @enduml
