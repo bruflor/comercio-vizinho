@@ -26,18 +26,18 @@ interface CoreRepository {
 }
 
 note right of CoreController
-  Defines a contract for CRUD operations.
-  All controllers must implement these methods.
+    Define um contrato para operações CRUD.
+    Todos os controladores devem implementar esses métodos.
 end note
 
 note right of CoreService
-  Defines a contract for business logic.
-  All services must implement these methods.
+    Define um contrato para lógica de negócios.
+    Todos os serviços devem implementar esses métodos.
 end note
 
 note right of CoreRepository
-  Defines a contract for data access.
-  All repositories must implement these methods.
+    Define um contrato para acesso a dados.
+    Todos os repositórios devem implementar esses métodos.
 end note
 
 @enduml

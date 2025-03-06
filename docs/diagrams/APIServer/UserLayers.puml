@@ -16,10 +16,10 @@ UserRepository --> Address : has
 UserRepository --> Product : contains
 
 note as N1
-See Core Interfaces
+Core Interfaces
 ./CoreInterfaces.puml
 
-See Models class diagrams on
+Diagramas de classes
 ../entities
 end note
 
