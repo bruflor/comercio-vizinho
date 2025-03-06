@@ -7,6 +7,9 @@ document {
   BackGroundColor white
 }
 </style>
+
+package Backend
+
 ' Ligações somente entre packages, não precisa especificar
 package  Frontend(ReactJS) {
     package "UI Components" {
@@ -57,26 +60,10 @@ package  Frontend(ReactJS) {
 }
 
 ' Relationships
-[HomePage] --> [ProductCard]
-[ProductPage] --> [ProductCard]
-[CartPage] --> [CartItem]
-[CartItem] --|> [Card]: extends
-[ProductCard] --|> [Card]: extends
-[ProfilePage] --> [UserContext]
-[ProfilePage] --> [Input]
-[OrderPage] --> [OrderContext]
 
-[UserContext] --> [Axios]
-[CartContext] --> [Axios]
-[OrderContext] --> [Axios]
-
-[React Router] --> [HomePage]
-[React Router] --> [ProductPage]
-[React Router] --> [CartPage]
-[React Router] --> [ProfilePage]
-[React Router] --> [OrderPage]
-
-[Axios] --> [Backend]
+"Pages" --> "UI Components"
+"Routing" --> "Pages"
+"API Communication" --> Backend:access
 
 note right of "Frontend(ReactJS)"
   Built with ReactJS.
