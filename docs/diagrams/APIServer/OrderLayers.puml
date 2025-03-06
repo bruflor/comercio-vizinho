@@ -1,0 +1,26 @@
+@startuml
+
+class OrderController implements CoreController {}
+class OrderService implements CoreService {}
+class OrderRepository implements CoreRepository {}
+
+class Order <<model>> {}
+class Address <<model>> {}
+class Product <<model>> {}
+
+' Relationships
+OrderController --> OrderService : access
+OrderService --> OrderRepository : manipulate
+OrderRepository --> Order : based on
+OrderRepository --> Address : has
+OrderRepository --> Product : contains
+
+note as N1
+See Core Interfaces
+./CoreInterfaces.puml
+
+See Models class diagrams on
+../entities
+end note
+
+@enduml

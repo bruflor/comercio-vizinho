@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+interface CoreController {
+    + GetAll(sort: string?, page: int?, limit: int?)
+    + GetById(id: int)
+    + Create(data: Object)
+    + Update(id: int, data: Object)
+    + Delete(id: int)
+}
+
+interface CoreService {
+    + GetAll(sort: string?, page: int?, limit: int?)
+    + GetById(id: int)
+    + Create(data: Object)
+    + Update(id: int, data: Object)
+    + Delete(id: int)
+}
+
+interface CoreRepository {
+    + GetAll(sort: string?, page: int?, limit: int?)
+    + GetById(id: int)
+    + Create(data: Object)
+    + Update(id: int, data: Object)
+    + Delete(id: int)
+}
+
+note right of CoreController
+  Defines a contract for CRUD operations.
+  All controllers must implement these methods.
+end note
+
+note right of CoreService
+  Defines a contract for business logic.
+  All services must implement these methods.
+end note
+
+note right of CoreRepository
+  Defines a contract for data access.
+  All repositories must implement these methods.
+end note
+
+@enduml
