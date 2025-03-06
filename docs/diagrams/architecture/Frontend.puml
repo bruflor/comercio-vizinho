@@ -7,8 +7,8 @@ document {
   BackGroundColor white
 }
 </style>
-
-package "Frontend (ReactJS)" {
+' Ligações somente entre packages, não precisa especificar
+package  Frontend(ReactJS) {
     package "UI Components" {
         [Button]
         [Input]
@@ -18,7 +18,7 @@ package "Frontend (ReactJS)" {
     }
 
     package "Pages" {
-        [HomePage]
+        folder HomePage
         [ProductPage]
         [CartPage]
         [ProfilePage]
@@ -78,7 +78,7 @@ package "Frontend (ReactJS)" {
 
 [Axios] --> [Backend]
 
-note right of [Frontend (ReactJS)]
+note right of "Frontend(ReactJS)"
   Built with ReactJS.
   Uses reusable components,
   state management, and

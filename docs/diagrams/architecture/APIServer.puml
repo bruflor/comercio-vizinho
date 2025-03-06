@@ -8,7 +8,7 @@ document {
 }
 </style>
 
-package "Backend (ASP.NET Core)" {
+package "APIServer (ASP.NET Core)" {
     package "Controllers" {
         [UserController]
         [ProductController]
@@ -56,7 +56,7 @@ package "Backend (ASP.NET Core)" {
 [OrderRepository] --> [Address]
 [OrderRepository] --> [Product]
 
-note right of [Backend (ASP.NET Core)]
+note right of [APIServer (ASP.NET Core)]
   Built with ASP.NET Core (C#).
   Follows a layered architecture:
   - Controllers handle HTTP requests.

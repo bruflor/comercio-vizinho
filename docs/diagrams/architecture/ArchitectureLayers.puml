@@ -14,13 +14,19 @@ left to right direction
 actor Client <<User>>
 
 'Frontend
-node UI
+node UI {
+    package Frontend
+}
 
 'Backend
-node Business
+node Business{
+package APIServer
+}
+node Persistence{
 
 'Database
-database Persistence
+database Database
+}
 
 'Layers Communication
 Client --> "UI"

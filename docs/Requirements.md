@@ -39,7 +39,7 @@
 - [RNF04] A ‘interface’ simples e fácil de usar, mesmo para pessoas com pouca experiência tecnológica.
 - [RNF05] O sistema deve funcionar nos principais navegadores (Chrome, Firefox, Edge).
 - [RNF06] O sistema deve estar sempre disponível, com pouquíssimo tempo de inatividade.
-- [RNF07] O sistema deve conter uma base de dados SQL (**PostgreSQL**)
+- [RNF07] O sistema deve conter uma base de dados SQL (inicialmente **PostgreSQL**)
 - [RNF08] O sistema deve usar a linguagem **C#** com _**Asp.net**_ core para a construção da API
 - [RNF09] O sistema deve usar a biblioteca **ReactJS** para construção do frontend
 
