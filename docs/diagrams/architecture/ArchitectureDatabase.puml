@@ -1,0 +1,98 @@
+@startuml
+<style>
+classDiagram {
+  BackGroundColor #e2fff1
+}
+
+document {
+  BackGroundColor white
+}
+</style>
+
+package "Database" {
+    entity "User" {
+       * id: int <<generated>>
+       * name: string
+       * email: string
+       * password: string
+       * role: List<Role>
+       * status: string
+       phoneNumber: string 
+    }
+
+    entity "Address" {
+       * id: int <<generated>>
+       * userId: int <<FK>>
+       * street: string
+       * city: string
+       * state: string
+       * postalCode: string
+       * country: string
+       * isPrimary: boolean = true
+    }
+
+    entity "Order" {
+       * id: int <<generated>>
+       * consumerId: int <<FK>>
+       * producerId: int <<FK>>
+       * totalValue: float
+       * status: string
+       * pickUpAddressId: int <<FK>>
+       * availableAt: Date
+    }
+
+    entity "Product" {
+       * id: int <<generated>>
+       * name: string
+       description: string 
+       * price: float
+       * stockLevel: int
+       * isAvailable: boolean
+       expirationDate: Date 
+       photo: string 
+       environmentalImpact: string 
+       promotionalPrice: float 
+    }
+
+    entity "Category" {
+       * id: int <<generated>>
+       * name: string
+       description: string 
+       * status: string
+    }
+
+    entity "OrderProduct" {
+       * id: int <<generated>>
+       * orderId: int <<FK>>
+       * productId: int <<FK>>
+       * quantity: int
+    }
+}
+
+' Relationships
+
+' one to many
+User ||--o{ Address : has
+User ||--o{ Order : places
+Order ||--o{ OrderProduct : contains
+Product ||--o{ OrderProduct : included in
+
+' many to one
+Product }o--|| Category : belongs to
+Order }o--|| Address : uses > pickUpAddress
+
+note bottom of [OrderProduct]
+  Resolves the many-to-many
+  relationship between
+  Order and Product.
+end note
+
+note left of [Database]
+  PostgreSQL database with
+  tables for users, products,
+  orders, categories, and addresses.
+  Uses foreign keys <<FK>> to
+  establish relationships.
+end note
+
+@enduml
