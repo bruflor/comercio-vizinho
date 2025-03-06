@@ -7,10 +7,10 @@ document {
   BackGroundColor white
 }
 </style>
+left to right direction
 
-package Backend
+package APIServer
 
-' Ligações somente entre packages, não precisa especificar
 package  Frontend(ReactJS) {
     package "UI Components" {
         [Button]
@@ -61,15 +61,16 @@ package  Frontend(ReactJS) {
 
 ' Relationships
 
-"Pages" --> "UI Components"
-"Routing" --> "Pages"
-"API Communication" --> Backend:access
+"Pages" --> "UI Components": use
+"Routing" --> "Pages": redirect
+"State Management" --> "Pages":Wrap
+"API Communication" --> APIServer:access
 
 note right of "Frontend(ReactJS)"
-  Built with ReactJS.
-  Uses reusable components,
-  state management, and
-  API communication.
+Construído com ReactJS.
+Usa componentes reutilizáveis,
+gerenciamento de estado e
+comunicação de API.
 end note
 
 @enduml
