@@ -1,0 +1,69 @@
+@startuml
+<style>
+componentDiagram {
+  BackGroundColor #e2fff1
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+package "Backend (ASP.NET Core)" {
+    package "Controllers" {
+        [UserController]
+        [ProductController]
+        [OrderController]
+    }
+
+    package "Services" {
+        [UserService]
+        [ProductService]
+        [OrderService]
+    }
+
+    package "Repositories" {
+        [UserRepository]
+        [ProductRepository]
+        [OrderRepository]
+    }
+
+    package "Models" {
+        [User]
+        [Product]
+        [Order]
+        [Category]
+        [Address]
+    }
+
+}
+
+' Relationships
+[UserController] --> [UserService]
+[ProductController] --> [ProductService]
+[OrderController] --> [OrderService]
+
+[UserService] --> [UserRepository]
+[ProductService] --> [ProductRepository]
+[OrderService] --> [OrderRepository]
+
+
+[ProductRepository] --> [Product]
+[ProductRepository] --> [Category]
+[UserRepository] --> [User]
+[UserRepository] --> [Address]
+[UserRepository] --> [Product]
+[OrderRepository] --> [Order]
+[OrderRepository] --> [Address]
+[OrderRepository] --> [Product]
+
+note right of [Backend (ASP.NET Core)]
+  Built with ASP.NET Core (C#).
+  Follows a layered architecture:
+  - Controllers handle HTTP requests.
+  - Services implement business logic.
+  - Repositories interact with the database.
+  - Addresses are managed as part of
+    User and Order entities.
+end note
+
+@enduml
