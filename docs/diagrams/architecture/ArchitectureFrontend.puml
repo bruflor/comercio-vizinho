@@ -1,0 +1,88 @@
+@startuml
+<style>
+componentDiagram {
+  BackGroundColor #e2fff1
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+package "Frontend (ReactJS)" {
+    package "UI Components" {
+        [Button]
+        [Input]
+        [Card]
+        [ProductCard]
+        [CartItem]
+    }
+
+    package "Pages" {
+        [HomePage]
+        [ProductPage]
+        [CartPage]
+        [ProfilePage]
+        [OrderPage]
+    }
+
+    package "State Management" {
+        [UserContext]
+        [CartContext]
+        [OrderContext]
+    }
+
+    package "Routing" {
+        [React Router]
+    }
+
+    package "API Communication" {
+        [Axios]
+    }
+
+    package "Styling" {
+        [Styled Component]
+        [Sass]
+    }
+
+    package "Utility Functions" {
+        [formatPrice]
+        [formatDate]
+        [validateEmail]
+    }
+
+    package "Testing" {
+        [Vitest]
+        [React Testing Library]
+    }
+}
+
+' Relationships
+[HomePage] --> [ProductCard]
+[ProductPage] --> [ProductCard]
+[CartPage] --> [CartItem]
+[CartItem] --|> [Card]: extends
+[ProductCard] --|> [Card]: extends
+[ProfilePage] --> [UserContext]
+[ProfilePage] --> [Input]
+[OrderPage] --> [OrderContext]
+
+[UserContext] --> [Axios]
+[CartContext] --> [Axios]
+[OrderContext] --> [Axios]
+
+[React Router] --> [HomePage]
+[React Router] --> [ProductPage]
+[React Router] --> [CartPage]
+[React Router] --> [ProfilePage]
+[React Router] --> [OrderPage]
+
+[Axios] --> [Backend]
+
+note right of [Frontend (ReactJS)]
+  Built with ReactJS.
+  Uses reusable components,
+  state management, and
+  API communication.
+end note
+
+@enduml
