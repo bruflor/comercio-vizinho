@@ -7,13 +7,17 @@ class OrderRepository implements CoreRepository {}
 class Order <<model>> {}
 class Address <<model>> {}
 class Product <<model>> {}
+class User <<model>> {}
 
 ' Relationships
 OrderController --> OrderService : access
 OrderService --> OrderRepository : manipulate
 OrderRepository --> Order : based on
-OrderRepository --> Address : has
-OrderRepository --> Product : contains
+User --> Order : make
+Order --> Address : has
+Order --> Product : contains
+Product --> User : belongs
+
 
 note as N1
 Core Interfaces

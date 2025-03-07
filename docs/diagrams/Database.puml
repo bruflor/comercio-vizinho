@@ -100,10 +100,12 @@ Product ||--o{ OrderProduct : included in
 User ||--o{ Cart : has
 Cart ||--o{ CartItem : contains
 
+
 ' many to one
 Product }o--|| Category : belongs to
 Order }o--|| Address : uses > pickUpAddress
 CartItem }o--|| Product : refers to
+CartItem }o--|| User : belongs/producer
 
 note bottom of [OrderProduct]
 Resolve o relacionamento muitos-para-muitos

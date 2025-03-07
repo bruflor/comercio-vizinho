@@ -13,7 +13,6 @@ UserController --> UserService : access
 UserService --> UserRepository : manipulate
 UserRepository --> User : based on
 UserRepository --> Address : has
-UserRepository --> Product : contains
 
 note as N1
 Core Interfaces

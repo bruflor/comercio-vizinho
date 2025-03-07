@@ -6,12 +6,14 @@ class ProductRepository implements CoreRepository {}
 
 class Product <<model>> {}
 class Category <<model>> {}
+class User <<model>> {}
 
 ' Relationships
 ProductController --> ProductService : access
 ProductService --> ProductRepository : manipulate
 ProductRepository --> Product : based on
-ProductRepository --> Category : use
+Product --> Category : has
+Product --> User: belongs
 
 note as N1
 Core Interfaces

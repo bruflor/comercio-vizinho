@@ -13,18 +13,22 @@ package "APIServer (ASP.NET Core)" {
         [UserController]
         [ProductController]
         [OrderController]
+        [CartController]
     }
 
     package "Services" {
         [UserService]
         [ProductService]
         [OrderService]
+        [CartService]
     }
 
     package "Repositories" {
         [UserRepository]
         [ProductRepository]
         [OrderRepository]
+        [CartRepository]
+
     }
 
     package "Models" {
@@ -33,6 +37,8 @@ package "APIServer (ASP.NET Core)" {
         [Order]
         [Category]
         [Address]
+        [Cart]
+        [CartItem]
     }
 
 }
