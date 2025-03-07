@@ -4,15 +4,16 @@
 > Total em horas: 6h 
 
 ## Modelagem
-> Total em horas: 16h
+> Total em horas: 20h
 - Fluxo
 - Caso de uso
 - Classes
 - Banco de dados
 - Arquitetura
 
-## Codificação
+## Codificação/Produção
 > Total em horas:
+- Layout: 6 horas
 - Frontend
 - Backend
 - Banco de dados
