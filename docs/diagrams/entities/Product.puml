@@ -8,6 +8,7 @@ class Product{
     + stockLevel: int
     + isAvailable: boolean
     + category: List<Category>
+    + producerId: int <<FK>>
 
     + expirationDate: Date <<optional>>
     + photo: string <<optional>>
