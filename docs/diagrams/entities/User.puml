@@ -9,14 +9,9 @@ class User {
     + role: List<Role>
     + status: string
     + phoneNumber: string <<optional>>
-    - cart: List<Products> <<optional>>
 
     + login()
     + requestProducerRole()
-    + addProductOnCart()
-    + removeProductOnCart()
-    + readCart()
-    + makeOrder()
 }
 
 note right of User::makeOrder

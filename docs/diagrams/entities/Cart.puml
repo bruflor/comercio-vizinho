@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Cart{
+    + id: int
+    + consumerId: int
+    + cartItem: List<CartItem>
+    + totalValue: float
+    + status: string
+
+    + addProduct()
+    + removeProduct()
+    + changeQuantity()
+    + makeOrder() 
+}
+
+class CartItem{
+    + id: int <<generated>>
+    + cartId: int <<FK>>
+    + productId: int <<FK>>
+    + producerId: int <<FK>>
+    + quantity: int
+}
+
+Cart "1" -- "1..*" CartItem : has >
+
+note left of Cart::makeOrder
+Garantir que os pedidos são agrupados por produtor
+durante a finalização da compra.
+Uma Order para cada produtor
+end note
+
+@enduml

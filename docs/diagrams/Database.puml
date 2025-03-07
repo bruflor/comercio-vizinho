@@ -67,6 +67,27 @@ package "Database" {
        * productId: int <<FK>>
        * quantity: int
     }
+
+entity Cart{
+    * id: int
+    * consumerId: int
+    * cartItem: List<CartItem>
+    * totalValue: float
+    * status: string
+
+    * addProduct()
+    * removeProduct()
+    * changeQuantity()
+    * makeOrder() 
+}
+
+entity CartItem{
+    * id: int <<generated>>
+    * cartId: int <<FK>>
+    * productId: int <<FK>>
+    * producerId: int <<FK>>
+    * quantity: int
+}
 }
 
 ' Relationships
@@ -76,23 +97,25 @@ User ||--o{ Address : has
 User ||--o{ Order : places
 Order ||--o{ OrderProduct : contains
 Product ||--o{ OrderProduct : included in
+User ||--o{ Cart : has
+Cart ||--o{ CartItem : contains
 
 ' many to one
 Product }o--|| Category : belongs to
 Order }o--|| Address : uses > pickUpAddress
+CartItem }o--|| Product : refers to
 
 note bottom of [OrderProduct]
-  Resolves the many-to-many
-  relationship between
-  Order and Product.
+Resolve o relacionamento muitos-para-muitos
+entre Order e Product.
 end note
 
 note left of [Database]
-  PostgreSQL database with
-  tables for users, products,
-  orders, categories, and addresses.
-  Uses foreign keys <<FK>> to
-  establish relationships.
+    Banco de dados PostgreSQL com
+    tabelas para usuários, produtos,
+    pedidos, categorias e endereços.
+    Usa chaves estrangeiras <<FK>> para
+    estabelecer relacionamentos.
 end note
 
 @enduml
