@@ -1,0 +1,28 @@
+@startuml
+
+class CartController implements CoreController {}
+class CartService implements CoreService {}
+class CartRepository implements CoreRepository {}
+
+class Cart <<model>> {}
+class CartItem <<model>> {}
+class Product <<model>> {}
+class User <<model>> {}
+
+' Relationships
+CartController --> CartService : access
+CartService --> CartRepository : manipulate
+CartRepository --> Cart : based on
+Cart --> CartItem : has
+CartItem --> Product : contains
+CartItem --> User : belongs
+
+note as N1
+Core Interfaces
+./CoreInterfaces.puml
+
+Diagramas de classes
+../entities
+end note
+
+@enduml
