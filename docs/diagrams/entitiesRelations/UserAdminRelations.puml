@@ -1,0 +1,21 @@
+@startuml
+
+class UserAdmin <<admin>> {}
+class User <<consumer, producer>>
+class Address {}
+
+' Product Classes
+class Product {}
+' Order Classes
+class Order {}
+
+
+' User-Role Relationship
+UserAdmin "1" -- "1..*" User : manage >
+' User-Address Relationship
+UserAdmin "1" -- "0..*" Order : manage >
+' Associations
+Order "1" -- "1" Address : has >
+Order "1" -- "*" Product : contains >
+
+@enduml

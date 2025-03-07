@@ -1,0 +1,26 @@
+@startuml
+
+class ProductController implements CoreController {}
+class ProductService implements CoreService {}
+class ProductRepository implements CoreRepository {}
+
+class Product <<model>> {}
+class Category <<model>> {}
+class User <<model>> {}
+
+' Relationships
+ProductController --> ProductService : access
+ProductService --> ProductRepository : manipulate
+ProductRepository --> Product : based on
+Product --> Category : has
+Product --> User: belongs
+
+note as N1
+Core Interfaces
+./CoreInterfaces.puml
+
+Diagramas de classes
+../entities
+end note
+
+@enduml

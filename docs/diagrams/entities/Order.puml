@@ -1,0 +1,19 @@
+@startuml
+class Order {
+  + id: int
+  + consumerId: int
+  + producerId: int
+  + products: List<Product>
+  + totalValue: float
+  + status: string
+  + pickUpAddress: Address
+  + availableAt: date
+
+  + updateStatus()
+  + cancelOrder()
+}
+
+note right of Order::status
+    e.g., "in preparation", "ready for pickup", "delivered"
+end note
+@enduml

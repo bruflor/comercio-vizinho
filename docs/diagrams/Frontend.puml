@@ -1,0 +1,76 @@
+@startuml
+<style>
+componentDiagram {
+  BackGroundColor #e2fff1
+}
+document {
+  BackGroundColor white
+}
+</style>
+left to right direction
+
+package APIServer
+
+package  Frontend(ReactJS) {
+    package "UI Components" {
+        [Button]
+        [Input]
+        [Card]
+        [ProductCard]
+        [CartItem]
+    }
+
+    package "Pages" {
+        folder HomePage
+        [ProductPage]
+        [CartPage]
+        [ProfilePage]
+        [OrderPage]
+    }
+
+    package "State Management" {
+        [UserContext]
+        [CartContext]
+        [OrderContext]
+    }
+
+    package "Routing" {
+        [React Router]
+    }
+
+    package "API Communication" {
+        [Axios]
+    }
+
+    package "Styling" {
+        [Styled Component]
+        [Sass]
+    }
+
+    package "Utility Functions" {
+        [formatPrice]
+        [formatDate]
+        [validateEmail]
+    }
+
+    package "Testing" {
+        [Vitest]
+        [React Testing Library]
+    }
+}
+
+' Relationships
+
+"Pages" --> "UI Components": use
+"Routing" --> "Pages": redirect
+"State Management" --> "Pages":Wrap
+"API Communication" --> APIServer:access
+
+note right of "Frontend(ReactJS)"
+Construído com ReactJS.
+Usa componentes reutilizáveis,
+gerenciamento de estado e
+comunicação de API.
+end note
+
+@enduml

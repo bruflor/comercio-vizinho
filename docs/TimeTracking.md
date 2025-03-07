@@ -1,18 +1,20 @@
 # Controle de tempo
 
 ## Lenvantamento de Requisitos
-- Início em 03/03/2025 às 10h
-- Fim em 
-- Total em horas: 
+> Total em horas: 6h 
 
 ## Modelagem
-### Fluxo
-### Caso de uso
-### Classes
-### Banco de dados (MER)
-### Banco de dados (modelo lógico)
+> Total em horas: 20h
+- Fluxo
+- Caso de uso
+- Classes
+- Banco de dados
+- Arquitetura
 
-## Codificação
-### Frontend
-### Backend
+## Codificação/Produção
+> Total em horas:
+- Layout: 6 horas
+- Frontend
+- Backend
+- Banco de dados
  

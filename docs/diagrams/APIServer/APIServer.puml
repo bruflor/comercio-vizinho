@@ -1,0 +1,60 @@
+@startuml
+<style>
+componentDiagram {
+  BackGroundColor #e2fff1
+}
+document {
+  BackGroundColor white
+}
+</style>
+
+package "APIServer (ASP.NET Core)" {
+    package "Controllers" {
+        [UserController]
+        [ProductController]
+        [OrderController]
+        [CartController]
+    }
+
+    package "Services" {
+        [UserService]
+        [ProductService]
+        [OrderService]
+        [CartService]
+    }
+
+    package "Repositories" {
+        [UserRepository]
+        [ProductRepository]
+        [OrderRepository]
+        [CartRepository]
+
+    }
+
+    package "Models" {
+        [User]
+        [Product]
+        [Order]
+        [Category]
+        [Address]
+        [Cart]
+        [CartItem]
+    }
+
+}
+
+' Relationships
+"Controllers" --> "Services"
+"Services" --> "Repositories"
+"Repositories" --> "Models"
+
+
+note right of [APIServer (ASP.NET Core)]
+Construído com ASP.NET Core (C#).
+Segue uma arquitetura em camadas:
+- Controllers lidam com HTTP requests.
+- Services implementam lógica de negócios.
+- Repositories interagem com o banco de dados.
+end note
+
+@enduml

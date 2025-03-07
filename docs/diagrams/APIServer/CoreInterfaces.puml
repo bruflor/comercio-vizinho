@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+
+interface CoreController {
+    + GetAll(sort: string?, page: int?, limit: int?)
+    + GetById(id: int)
+    + Create(data: Object)
+    + Update(id: int, data: Object)
+    + Delete(id: int)
+}
+
+interface CoreService {
+    + GetAll(sort: string?, page: int?, limit: int?)
+    + GetById(id: int)
+    + Create(data: Object)
+    + Update(id: int, data: Object)
+    + Delete(id: int)
+}
+
+interface CoreRepository {
+    + GetAll(sort: string?, page: int?, limit: int?)
+    + GetById(id: int)
+    + Create(data: Object)
+    + Update(id: int, data: Object)
+    + Delete(id: int)
+}
+
+note right of CoreController
+    Define um contrato para operações CRUD.
+    Todos os controladores devem implementar esses métodos.
+end note
+
+note right of CoreService
+    Define um contrato para lógica de negócios.
+    Todos os serviços devem implementar esses métodos.
+end note
+
+note right of CoreRepository
+    Define um contrato para acesso a dados.
+    Todos os repositórios devem implementar esses métodos.
+end note
+
+@enduml

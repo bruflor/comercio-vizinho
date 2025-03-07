@@ -1,0 +1,60 @@
+@startuml
+skinparam actorStyle awesome
+<style>
+componentDiagram {
+  BackGroundColor #e2fff1
+}
+document {
+  BackGroundColor white
+}
+</style>
+left to right direction
+
+'User
+actor Client <<User>>
+
+'Frontend
+node UI {
+    package Frontend
+}
+
+'Backend
+node Business{
+package APIServer
+}
+node Persistence{
+
+'Database
+database Database
+}
+
+'Layers Communication
+Client --> "UI"
+"UI" --> "Business": API Calls
+"UI" <-- "Business": Responses
+"Business" <-- "Persistence": Read data
+"Business" --> "Persistence": Write data
+
+
+' Notes
+note right of [UI]
+  Web app frontend built with ReactJS.
+  Handles user interaction
+  and displays data from the backend.
+end note
+
+note right of [Business]
+  Backend built with ASP.NET Core (C#).
+  Provides RESTful APIs for
+  the frontend to interact with.
+end note
+
+note right of [Persistence]
+  Database built with PostgreSQL.
+  Stores application data,
+  including users, products,
+  orders, and categories.
+end note
+
+
+@enduml

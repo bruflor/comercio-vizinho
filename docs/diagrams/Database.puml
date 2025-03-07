@@ -1,0 +1,123 @@
+@startuml
+<style>
+classDiagram {
+  BackGroundColor #e2fff1
+}
+
+document {
+  BackGroundColor white
+}
+</style>
+
+package "Database" {
+    entity "User" {
+       * id: int <<generated>>
+       * name: string
+       * email: string
+       * password: string
+       * role: List<Role>
+       * status: string
+       phoneNumber: string 
+    }
+
+    entity "Address" {
+       * id: int <<generated>>
+       * userId: int <<FK>>
+       * street: string
+       * city: string
+       * state: string
+       * postalCode: string
+       * country: string
+       * isPrimary: boolean = true
+    }
+
+    entity "Order" {
+       * id: int <<generated>>
+       * consumerId: int <<FK>>
+       * producerId: int <<FK>>
+       * totalValue: float
+       * status: string
+       * pickUpAddressId: int <<FK>>
+       * availableAt: Date
+    }
+
+    entity "Product" {
+       * id: int <<generated>>
+       * name: string
+       description: string 
+       * price: float
+       * stockLevel: int
+       * isAvailable: boolean
+       expirationDate: Date 
+       photo: string 
+       environmentalImpact: string 
+       promotionalPrice: float 
+    }
+
+    entity "Category" {
+       * id: int <<generated>>
+       * name: string
+       description: string 
+       * status: string
+    }
+
+    entity "OrderProduct" {
+       * id: int <<generated>>
+       * orderId: int <<FK>>
+       * productId: int <<FK>>
+       * quantity: int
+    }
+
+entity Cart{
+    * id: int
+    * consumerId: int
+    * cartItem: List<CartItem>
+    * totalValue: float
+    * status: string
+
+    * addProduct()
+    * removeProduct()
+    * changeQuantity()
+    * makeOrder() 
+}
+
+entity CartItem{
+    * id: int <<generated>>
+    * cartId: int <<FK>>
+    * productId: int <<FK>>
+    * producerId: int <<FK>>
+    * quantity: int
+}
+}
+
+' Relationships
+
+' one to many
+User ||--o{ Address : has
+User ||--o{ Order : places
+Order ||--o{ OrderProduct : contains
+Product ||--o{ OrderProduct : included in
+User ||--o{ Cart : has
+Cart ||--o{ CartItem : contains
+
+
+' many to one
+Product }o--|| Category : belongs to
+Order }o--|| Address : uses > pickUpAddress
+CartItem }o--|| Product : refers to
+CartItem }o--|| User : belongs/producer
+
+note bottom of [OrderProduct]
+Resolve o relacionamento muitos-para-muitos
+entre Order e Product.
+end note
+
+note left of [Database]
+    Banco de dados PostgreSQL com
+    tabelas para usuários, produtos,
+    pedidos, categorias e endereços.
+    Usa chaves estrangeiras <<FK>> para
+    estabelecer relacionamentos.
+end note
+
+@enduml

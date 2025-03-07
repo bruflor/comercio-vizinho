@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class User {
+    + id: int
+    + name: string
+    + email: string
+    + password: string
+    + role: List<Role>
+    + status: string
+    + phoneNumber: string <<optional>>
+
+    + login()
+    + requestProducerRole()
+}
+
+note right of User::makeOrder
+   Cria uma instancia da class Order
+   remove produtos da order do cart
+end note
+
+' Role Class
+class Role {
+    + id: int
+    + name: string
+}
+
+note bottom of Role: e.g., "Producer", "Consumer", "Admin"
+
+' User-Address Relationship
+User "1" -- "0..*" Address : has >
+
+' User-Role Relationship
+User "1" --- "many" Role : has >
+
+@enduml

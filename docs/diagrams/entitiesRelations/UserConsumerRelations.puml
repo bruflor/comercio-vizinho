@@ -1,0 +1,18 @@
+@startuml
+class User <<consumer>> {}
+class Address {}
+
+' Product Classes
+class Product {}
+
+' Order Classes
+class Order {}
+class Cart {}
+
+' Associations
+User "1" -- "*" Order : make >
+User "1" -- "1" Cart: manage >
+Order "1" -- "1" Address : has pick up >
+Order "1" -- "*" Product : contains >
+
+@enduml
